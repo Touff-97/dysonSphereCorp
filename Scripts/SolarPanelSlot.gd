@@ -39,6 +39,7 @@ func _on_Add_pressed() -> void:
 		game.instance_resource_gained(1, self)
 	else:
 		add_panel.pressed = false
+		game.not_enough_resources("Money")
 
 
 func _on_Panel_pressed() -> void:
@@ -61,6 +62,7 @@ func _on_Upgrade_pressed() -> void:
 		up_1.disabled = true
 	else:
 		up_1.pressed = false
+		game.not_enough_resources("Money")
 
 
 func _on_Upgrade2_pressed() -> void:
@@ -79,6 +81,7 @@ func _on_Upgrade2_pressed() -> void:
 		up_2.disabled = true
 	else:
 		up_2.pressed = false
+		game.not_enough_resources("Money")
 
 
 func _on_Upgrade3_pressed() -> void:
@@ -97,3 +100,4 @@ func _on_Upgrade3_pressed() -> void:
 		panel.texture_normal = load("res://Assets/Sprites/solar_panel_farm/panel_mk_1_selected.png")
 	else:
 		up_3.pressed = false
+		game.not_enough_resources("Money")

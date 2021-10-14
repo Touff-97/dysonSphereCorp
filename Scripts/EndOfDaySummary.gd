@@ -61,8 +61,8 @@ func get_beans_amount() -> int:
 # SIGNALS FUNCTIONS
 func _on_EndOfDaySummary_visibility_changed() -> void:
 	if visible:
-		game.set_money(game.get_money() - 100)
-		set_pay_amount(100)
+		set_pay_amount(0)
+		game.set_money(game.get_money() - get_pay_amount())
 
 
 func _on_Decrease_pressed() -> void:

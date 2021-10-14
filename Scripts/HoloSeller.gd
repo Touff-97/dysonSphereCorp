@@ -181,6 +181,7 @@ func _on_AddShop_pressed() -> void:
 		emit_signal("shop_added")
 	else:
 		add_shop.pressed = false
+		game.not_enough_resources("Money")
 
 
 func _on_HoloSeller_pressed() -> void:
@@ -193,6 +194,8 @@ func _on_Power_pressed() -> void:
 		set_item_selling(itemSelling.POWER)
 		price_tag.show()
 		price_input.grab_focus()
+	else:
+		game.not_enough_resources("Power")
 
 
 func _on_Produce_pressed() -> void:
@@ -200,6 +203,8 @@ func _on_Produce_pressed() -> void:
 		sell_power.hide()
 		sell_produce.hide()
 		produce.visible = true
+	else:
+		game.not_enough_resources("Produce")
 
 
 func _on_Grain_pressed() -> void:
@@ -209,6 +214,8 @@ func _on_Grain_pressed() -> void:
 		set_item_selling(itemSelling.GRAIN)
 		price_tag.show()
 		price_input.grab_focus()
+	else:
+		game.not_enough_resources("Produce")
 
 
 func _on_Fruit_pressed() -> void:
@@ -218,6 +225,8 @@ func _on_Fruit_pressed() -> void:
 		set_item_selling(itemSelling.FRUIT)
 		price_tag.show()
 		price_input.grab_focus()
+	else:
+		game.not_enough_resources("Produce")
 
 
 func _on_Beans_pressed() -> void:
@@ -227,6 +236,8 @@ func _on_Beans_pressed() -> void:
 		set_item_selling(itemSelling.BEANS)
 		price_tag.show()
 		price_input.grab_focus()
+	else:
+		game.not_enough_resources("Produce")
 
 
 func _on_Refresh_pressed() -> void:
@@ -250,6 +261,8 @@ func _on_Refresh_pressed() -> void:
 	
 	customer.stop()
 	customer_path.unit_offset = 0.0
+	
+	disable_buttons()
 
 
 func _on_Check_pressed() -> void:
@@ -260,6 +273,8 @@ func _on_Check_pressed() -> void:
 	incoming_total = randi() % 40 + 30
 	incoming_customer = incoming_total
 	customer.start()
+	
+	disable_buttons()
 
 
 func _on_Customer_timeout() -> void:
@@ -354,3 +369,10 @@ func get_review(satisfaction: String, _rating: int):
 	print("Customer " + satisfaction + "!")
 	print("Customer left a " + str(_rating) + " star review")
 
+
+func disable_buttons() -> void:
+	sell_power.disabled = !sell_power.disabled
+	sell_produce.disabled = !sell_produce.disabled
+	sell_grain.disabled = !sell_grain.disabled
+	sell_fruit.disabled = !sell_fruit.disabled
+	sell_beans.disabled = !sell_beans.disabled

@@ -62,6 +62,7 @@ func _on_AddPatch_pressed() -> void:
 		emit_signal("patch_added")
 	else:
 		add_patch.pressed = false
+		game.not_enough_resources("Money")
 
 
 func _on_DirtPatch_pressed() -> void:

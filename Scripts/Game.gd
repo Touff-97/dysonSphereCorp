@@ -92,7 +92,7 @@ var seller_capacity_cooldown : int = 0
 
 
 func _ready() -> void:
-	set_money(10000)
+	set_money(100)
 	set_produce(1)
 	set_view(View.SOLAR)
 	instance_panel_slot()
@@ -260,6 +260,8 @@ func _on_AddCapacity_pressed() -> void:
 			add_panel_capacityTimer.autostart = true
 			
 			set_money(get_money() - 50)
+		else:
+			not_enough_resources("Money")
 
 
 func _on_CapacityTimer_timeout() -> void:
@@ -298,6 +300,8 @@ func _on_AddPatchCapacity_pressed() -> void:
 			add_patch_capacityTimer.autostart = true
 			
 			set_money(get_money() - 50)
+		else:
+			not_enough_resources("Money")
 
 
 func _on_PatchCapacityTimer_timeout() -> void:
@@ -336,6 +340,8 @@ func _on_AddSellerCapacity_pressed() -> void:
 			add_shop_capacityTimer.autostart = true
 			
 			set_money(get_money() - 50)
+		else:
+			not_enough_resources("Money")
 
 
 func _on_SellerCapacityTimer_timeout() -> void:
@@ -356,6 +362,7 @@ func instance_resource_gained(resource: int, requester: Node) -> void:
 	var center_container = CenterContainer.new()
 	
 	center_container.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	center_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	resource_gained.set_resource(resource)
 	center_container.add_child(resource_gained)
 	requester.get_child(1).add_child(center_container)
@@ -401,3 +408,43 @@ func give_back_power(power_amount: int, start_time: int) -> void:
 	if timer <= 0:
 		set_power(get_power() + power_amount)
 		print("Returned: ", power_amount)
+
+
+func not_enough_resources(resource: String) -> void:
+	match resource:
+		"Money":
+			money_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			money_label.set("custom_colors/font_color", Color(0, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			money_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			money_label.set("custom_colors/font_color", Color(0, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			money_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			money_label.set("custom_colors/font_color", Color(0, 0, 0))
+		"Power":
+			power_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			power_label.set("custom_colors/font_color", Color(0, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			power_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			power_label.set("custom_colors/font_color", Color(0, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			power_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			power_label.set("custom_colors/font_color", Color(0, 0, 0))
+		"Produce":
+			produce_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			produce_label.set("custom_colors/font_color", Color(0, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			produce_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			produce_label.set("custom_colors/font_color", Color(0, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			produce_label.set("custom_colors/font_color", Color(255, 0, 0))
+			yield(get_tree().create_timer(0.1), "timeout")
+			produce_label.set("custom_colors/font_color", Color(0, 0, 0))
