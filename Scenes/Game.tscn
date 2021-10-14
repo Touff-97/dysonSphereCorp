@@ -1,0 +1,515 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Assets/Sprites/general/back.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/general/back_selected.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sprites/produce_farm/add_capacity_disabled.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/buy_capacity.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Fonts/My_handwritten_font-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/buy_capacity_disabled.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/upgrade.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/general/next.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/general/next_selected.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/buy_upgrade.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/general/next_disabled.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/general/back_disabled.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/background.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/buy_capacity_selected.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/organic_shop/add_capacity_disabled.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/produce_farm/seed.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/organic_shop/add_capacity_selected.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/produce_farm/add_capacity.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/produce_farm/add_capacity_selected.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/organic_shop/add_capacity.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/general/home_selected.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/general/home.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/EndOfDaySummary.tscn" type="PackedScene" id=25]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+outline_size = 4
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 2
+font_data = ExtResource( 7 )
+
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 15 )
+expand = true
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="TopUI" type="HBoxContainer" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -365.0
+margin_top = 90.0
+margin_right = 365.0
+margin_bottom = 193.0
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox3" type="HBoxContainer" parent="HUD/TopUI"]
+margin_right = 103.0
+margin_bottom = 103.0
+
+[node name="Previous" type="TextureButton" parent="HUD/TopUI/HBox3"]
+margin_right = 103.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 103, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="HUD/TopUI"]
+margin_left = 107.0
+margin_top = 1.0
+margin_right = 261.0
+margin_bottom = 101.0
+size_flags_vertical = 4
+custom_constants/separation = 0
+
+[node name="HBox" type="HBoxContainer" parent="HUD/TopUI/VBox"]
+margin_right = 154.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="Power" type="Label" parent="HUD/TopUI/VBox/HBox"]
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="HUD/TopUI/VBox/HBox"]
+margin_left = 104.0
+margin_right = 154.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_vertical = 4
+texture = ExtResource( 9 )
+expand = true
+
+[node name="HBox5" type="HBoxContainer" parent="HUD/TopUI/VBox"]
+margin_top = 50.0
+margin_right = 154.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+
+[node name="Produce" type="Label" parent="HUD/TopUI/VBox/HBox5"]
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="HUD/TopUI/VBox/HBox5"]
+margin_left = 104.0
+margin_right = 154.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_vertical = 4
+texture = ExtResource( 18 )
+expand = true
+
+[node name="Filler" type="Panel" parent="HUD/TopUI"]
+margin_left = 265.0
+margin_right = 465.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 200, 0 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="HBox2" type="HBoxContainer" parent="HUD/TopUI"]
+margin_left = 469.0
+margin_right = 623.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+
+[node name="Icon" type="TextureRect" parent="HUD/TopUI/HBox2"]
+margin_top = 26.0
+margin_right = 50.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_vertical = 4
+texture = ExtResource( 12 )
+expand = true
+
+[node name="Money" type="Label" parent="HUD/TopUI/HBox2"]
+margin_left = 54.0
+margin_top = 36.0
+margin_right = 154.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 6
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+valign = 1
+
+[node name="HBox4" type="HBoxContainer" parent="HUD/TopUI"]
+margin_left = 627.0
+margin_right = 730.0
+margin_bottom = 103.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="TextureButton" parent="HUD/TopUI/HBox4"]
+margin_right = 103.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 103, 0 )
+rect_pivot_offset = Vector2( 51, 51 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SolarPanelView" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="SolarPanelView"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1250.0
+margin_bottom = 690.0
+mouse_filter = 2
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="SolarPanelView/VBox"]
+margin_right = 1220.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 220 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[node name="SolarPanelsGrid" type="GridContainer" parent="SolarPanelView/VBox"]
+margin_left = 610.0
+margin_top = 220.0
+margin_right = 610.0
+margin_bottom = 570.0
+rect_min_size = Vector2( 0, 350 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/vseparation = 5
+custom_constants/hseparation = 25
+columns = 3
+
+[node name="AddPanelCapacity" type="TextureButton" parent="SolarPanelView"]
+margin_left = 1100.0
+margin_top = 540.0
+margin_right = 1250.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="Timer" type="Label" parent="SolarPanelView/AddPanelCapacity"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "75"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CapacityTimer" type="Timer" parent="SolarPanelView/AddPanelCapacity"]
+
+[node name="Label" type="Label" parent="SolarPanelView/AddPanelCapacity"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FarmView" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="FarmView"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1250.0
+margin_bottom = 690.0
+mouse_filter = 2
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="FarmView/VBox"]
+margin_right = 1220.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 220 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[node name="ProduceFarmGrid" type="GridContainer" parent="FarmView/VBox"]
+margin_left = 610.0
+margin_top = 220.0
+margin_right = 610.0
+margin_bottom = 570.0
+rect_min_size = Vector2( 0, 350 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/vseparation = 5
+custom_constants/hseparation = 25
+columns = 3
+
+[node name="AddPatchCapacity" type="TextureButton" parent="FarmView"]
+margin_left = 1100.0
+margin_top = 540.0
+margin_right = 1250.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 4 )
+expand = true
+
+[node name="Timer" type="Label" parent="FarmView/AddPatchCapacity"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "75"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PatchCapacityTimer" type="Timer" parent="FarmView/AddPatchCapacity"]
+
+[node name="Label" type="Label" parent="FarmView/AddPatchCapacity"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopView" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="ShopView"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1250.0
+margin_bottom = 690.0
+mouse_filter = 2
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="ShopView/VBox"]
+margin_right = 1220.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 220 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[node name="OrganicShopGrid" type="GridContainer" parent="ShopView/VBox"]
+margin_left = 610.0
+margin_top = 220.0
+margin_right = 610.0
+margin_bottom = 570.0
+rect_min_size = Vector2( 0, 350 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/vseparation = 5
+custom_constants/hseparation = 25
+columns = 3
+
+[node name="AddSellerCapacity" type="TextureButton" parent="ShopView"]
+margin_left = 1100.0
+margin_top = 540.0
+margin_right = 1250.0
+margin_bottom = 690.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+texture_disabled = ExtResource( 17 )
+expand = true
+
+[node name="Timer" type="Label" parent="ShopView/AddSellerCapacity"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "75"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellerCapacityTimer" type="Timer" parent="ShopView/AddSellerCapacity"]
+
+[node name="Label" type="Label" parent="ShopView/AddSellerCapacity"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackToMenu" type="MarginContainer" parent="."]
+margin_right = 250.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 250, 250 )
+mouse_filter = 2
+custom_constants/margin_right = 75
+custom_constants/margin_top = 85
+custom_constants/margin_left = 75
+custom_constants/margin_bottom = 65
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureButton" parent="BackToMenu"]
+margin_left = 75.0
+margin_top = 85.0
+margin_right = 175.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 23 )
+expand = true
+
+[node name="EndOfDaySummary" parent="." instance=ExtResource( 25 )]
+
+[connection signal="day_passed" from="HUD/MarginContainer/VBoxContainer/Time" to="." method="_on_Time_day_passed"]
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/TimeControls/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/TimeControls/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/TimeControls/Forward" to="." method="_on_Forward_pressed"]
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/TimeControls/ForwardTimes2" to="." method="_on_ForwardTimes2_pressed"]
+[connection signal="pressed" from="HUD/TopUI/HBox3/Previous" to="." method="_on_Previous_pressed"]
+[connection signal="pressed" from="HUD/TopUI/HBox4/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="SolarPanelView/AddPanelCapacity" to="." method="_on_AddCapacity_pressed"]
+[connection signal="timeout" from="SolarPanelView/AddPanelCapacity/CapacityTimer" to="." method="_on_CapacityTimer_timeout"]
+[connection signal="pressed" from="FarmView/AddPatchCapacity" to="." method="_on_AddPatchCapacity_pressed"]
+[connection signal="timeout" from="FarmView/AddPatchCapacity/PatchCapacityTimer" to="." method="_on_PatchCapacityTimer_timeout"]
+[connection signal="pressed" from="ShopView/AddSellerCapacity" to="." method="_on_AddSellerCapacity_pressed"]
+[connection signal="timeout" from="ShopView/AddSellerCapacity/SellerCapacityTimer" to="." method="_on_SellerCapacityTimer_timeout"]
+[connection signal="pressed" from="BackToMenu/Back" to="." method="_on_Back_pressed"]
+
+[editable path="HUD"]

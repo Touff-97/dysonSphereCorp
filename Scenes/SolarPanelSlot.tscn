@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/upgrade.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/buy_upgrade_selected.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/add_panel_selected.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/add_panel.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/upgrade_selected.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/panel_mk_1_selected.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/buy_upgrade.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/solar_panel_farm/panel_mk_1.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/SolarPanelSlot.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Fonts/My_handwritten_font-Regular.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+font_data = ExtResource( 10 )
+
+[node name="Slot1" type="VBoxContainer"]
+margin_right = 150.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 75, 75 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="TextureButton" parent="."]
+margin_right = 150.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+expand = true
+
+[node name="Cost" type="Label" parent="Add"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="TextureButton" parent="."]
+visible = false
+margin_top = 154.0
+margin_right = 150.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 150, 150 )
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+
+[node name="Upgrades" type="HBoxContainer" parent="Panel"]
+visible = false
+anchor_right = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrade" type="TextureButton" parent="Panel/Upgrades"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 5 )
+expand = true
+
+[node name="Upgrade2" type="TextureButton" parent="Panel/Upgrades"]
+visible = false
+margin_left = 50.0
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 5 )
+expand = true
+
+[node name="Upgrade3" type="TextureButton" parent="Panel/Upgrades"]
+visible = false
+margin_left = 100.0
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 5 )
+expand = true
+
+[node name="Cost" type="Label" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Add" to="." method="_on_Add_pressed"]
+[connection signal="pressed" from="Panel" to="." method="_on_Panel_pressed"]
+[connection signal="pressed" from="Panel/Upgrades/Upgrade" to="." method="_on_Upgrade_pressed"]
+[connection signal="pressed" from="Panel/Upgrades/Upgrade2" to="." method="_on_Upgrade2_pressed"]
+[connection signal="pressed" from="Panel/Upgrades/Upgrade3" to="." method="_on_Upgrade3_pressed"]
