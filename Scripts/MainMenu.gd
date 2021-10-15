@@ -2,7 +2,7 @@ extends Control
 
 signal level_changed
 
-var level_name = "Main Menu"
+var level_name = "MainMenu"
 
 
 func _on_Start_pressed() -> void:

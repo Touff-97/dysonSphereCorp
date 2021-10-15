@@ -19,10 +19,6 @@ var beans_amount : int = 0 setget set_beans_amount, get_beans_amount
 var seed_price : int = 10
 
 
-func _ready() -> void:
-	debt_label.set_text(str(game.get_debt()))
-
-
 # SETGET FUNCTIONS
 func set_pay_amount(new_value: int) -> void:
 	pay_amount = new_value
@@ -65,6 +61,7 @@ func get_beans_amount() -> int:
 # SIGNALS FUNCTIONS
 func _on_EndOfDaySummary_visibility_changed() -> void:
 	if visible:
+		debt_label.set_text(str(game.get_debt()))
 		set_pay_amount(0)
 		game.set_money(game.get_money() - get_pay_amount())
 
@@ -136,13 +133,16 @@ func _on_BeansIncrease_pressed() -> void:
 
 
 func _on_Done_pressed() -> void:
-	debt_label.set_text(total_label.get_text())
-	game.set_debt(int(total_label.get_text()))
-	
-	set_grain_amount(0)
-	set_fruit_amount(0)
-	set_beans_amount(0)
-	
-	hide()
-	
-	game.set_time_speed(1)
+	if game.get_debt() <= 0:
+		game.end_game(true)
+	else:
+		debt_label.set_text(total_label.get_text())
+		game.set_debt(int(total_label.get_text()))
+		
+		set_grain_amount(0)
+		set_fruit_amount(0)
+		set_beans_amount(0)
+		
+		hide()
+		
+		game.set_time_speed(1)

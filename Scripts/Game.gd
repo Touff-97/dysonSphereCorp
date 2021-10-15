@@ -7,6 +7,7 @@ const RESOURCE_GAINED : PackedScene = preload("res://Scenes/ResourceGained.tscn"
 
 signal level_changed
 
+onready var time : Control = $HUD/MarginContainer/VBoxContainer/Time
 # UI
 onready var previous : TextureButton = $HUD/TopUI/HBox3/Previous
 onready var next : TextureButton = $HUD/TopUI/HBox4/Next
@@ -62,7 +63,7 @@ enum View {
 	SHOP,
 }
 
-var debt : int = 1000000 setget set_debt, get_debt
+var debt : int = 0 setget set_debt, get_debt
 
 var view = View.SOLAR setget set_view, get_view
 var time_speed : int = 1 setget set_time_speed, get_time_speed
@@ -98,7 +99,9 @@ var seller_capacity_cooldown : int = 0
 
 
 func _ready() -> void:
+	time.set_day(1)
 	set_money(100)
+	set_debt(-100000)
 	set_produce(1)
 	set_view(View.SOLAR)
 	instance_panel_slot()
@@ -205,8 +208,11 @@ func _on_Back_pressed() -> void:
 
 
 func _on_Time_day_passed() -> void:
-	set_time_speed(0)
-	end_of_day.show()
+	if time.get_day() < 30:
+		set_time_speed(0)
+		end_of_day.show()
+	else:
+		end_game(false)
 
 
 func _on_Previous_pressed() -> void:
@@ -483,3 +489,7 @@ func not_enough_resources(resource: String) -> void:
 			produce_label.set("custom_colors/font_color", Color(255, 0, 0))
 			yield(get_tree().create_timer(0.1), "timeout")
 			produce_label.set("custom_colors/font_color", Color(0, 0, 0))
+
+
+func end_game(win: bool) -> void:
+	emit_signal("level_changed", level_name, 1, win)

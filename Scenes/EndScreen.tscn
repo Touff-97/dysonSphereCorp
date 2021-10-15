@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/player_ui/sun_dial.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/My_handwritten_font-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Sprites/player_ui/sun_dial.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/EndScreen.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 128
+outline_size = 4
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+outline_size = 2
 use_filter = true
 font_data = ExtResource( 2 )
 
@@ -13,18 +20,30 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 48
+outline_size = 2
 use_filter = true
 font_data = ExtResource( 2 )
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="DynamicFont" id=8]
+size = 48
+outline_size = 2
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+outline_size = 2
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="EndScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 640, 360 )
-mouse_filter = 2
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -42,7 +61,7 @@ rect_min_size = Vector2( 720, 720 )
 mouse_filter = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_lock_": true,
@@ -52,7 +71,7 @@ __meta__ = {
 [node name="Color" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+rect_pivot_offset = Vector2( -268.881, -394.892 )
 color = Color( 1, 0.980392, 0.811765, 0.705882 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -61,66 +80,66 @@ __meta__ = {
 [node name="Margin" type="MarginContainer" parent="Color"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
-custom_constants/margin_right = 100
+custom_constants/margin_right = 0
 custom_constants/margin_top = 100
-custom_constants/margin_left = 100
+custom_constants/margin_left = 0
 custom_constants/margin_bottom = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBox" type="VBoxContainer" parent="Color/Margin"]
-margin_left = 100.0
 margin_top = 100.0
-margin_right = 1180.0
+margin_right = 1280.0
 margin_bottom = 620.0
-custom_constants/separation = 150
+custom_constants/separation = 50
 
 [node name="Title" type="Label" parent="Color/Margin/VBox"]
-margin_right = 1080.0
+margin_right = 1280.0
 margin_bottom = 118.0
-rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Dyson Sphere Corp."
+text = "Game Over"
 align = 1
 valign = 1
 
-[node name="Margin" type="MarginContainer" parent="Color/Margin/VBox"]
-margin_top = 268.0
-margin_right = 1080.0
-margin_bottom = 448.0
-mouse_filter = 2
-custom_constants/margin_right = 350
-custom_constants/margin_left = 350
+[node name="Subtitle" type="Label" parent="Color/Margin/VBox"]
+margin_top = 168.0
+margin_right = 1280.0
+margin_bottom = 212.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Thank you for playing my game! Hope you enjoyed"
+align = 1
+valign = 1
+autowrap = true
 
-[node name="VBox" type="VBoxContainer" parent="Color/Margin/VBox/Margin"]
-margin_left = 350.0
-margin_right = 730.0
-margin_bottom = 180.0
+[node name="VBox" type="VBoxContainer" parent="Color/Margin/VBox"]
+margin_top = 262.0
+margin_right = 1280.0
+margin_bottom = 442.0
 custom_constants/separation = 15
 
-[node name="Start" type="Button" parent="Color/Margin/VBox/Margin/VBox"]
-margin_right = 380.0
+[node name="Replay" type="Button" parent="Color/Margin/VBox/VBox"]
+margin_right = 1280.0
 margin_bottom = 50.0
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.980392, 0.380392, 0.286275, 1 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.380392, 0.286275, 1 )
 toggle_mode = true
-text = "Start"
+text = "Replay"
 flat = true
 
-[node name="Settings" type="Button" parent="Color/Margin/VBox/Margin/VBox"]
+[node name="Settings" type="Button" parent="Color/Margin/VBox/VBox"]
 margin_top = 65.0
-margin_right = 380.0
+margin_right = 1280.0
 margin_bottom = 115.0
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.980392, 0.380392, 0.286275, 1 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.380392, 0.286275, 1 )
@@ -128,20 +147,20 @@ toggle_mode = true
 text = "Settings"
 flat = true
 
-[node name="Quit" type="Button" parent="Color/Margin/VBox/Margin/VBox"]
+[node name="BackToMenu" type="Button" parent="Color/Margin/VBox/VBox"]
 margin_top = 130.0
-margin_right = 380.0
+margin_right = 1280.0
 margin_bottom = 180.0
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.980392, 0.380392, 0.286275, 1 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.380392, 0.286275, 1 )
 toggle_mode = true
-text = "Quit"
+text = "Main Menu"
 flat = true
 
-[connection signal="pressed" from="Color/Margin/VBox/Margin/VBox/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Color/Margin/VBox/Margin/VBox/Settings" to="." method="_on_Settings_pressed"]
-[connection signal="pressed" from="Color/Margin/VBox/Margin/VBox/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Color/Margin/VBox/VBox/Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="Color/Margin/VBox/VBox/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Color/Margin/VBox/VBox/BackToMenu" to="." method="_on_BackToMenu_pressed"]
