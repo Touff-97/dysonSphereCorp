@@ -19,6 +19,10 @@ onready var view_label : Label = $HUD/MarginContainer/VBoxContainer/View
 
 onready var end_of_day : Control = $EndOfDaySummary
 
+onready var loan_button : TextureButton = $LoanButton/Loan
+onready var loan_label : Label = $LoanButton/Loan/Label
+onready var loan_timer : Timer = $LoanButton/Loan/LoanTimer
+
 # Solar Panels
 onready var panel_grid : GridContainer = $SolarPanelView/VBox/SolarPanelsGrid
 
@@ -63,6 +67,8 @@ var debt : int = 1000000 setget set_debt, get_debt
 var view = View.SOLAR setget set_view, get_view
 var time_speed : int = 1 setget set_time_speed, get_time_speed
 var money : int = 0 setget set_money, get_money
+
+var loan_time : int = 250
 
 # Solar Panels
 var panel_count : int = 0
@@ -228,6 +234,35 @@ func _on_Forward_pressed() -> void:
 func _on_ForwardTimes2_pressed() -> void:
 	set_time_speed(3)
 
+
+func _on_Loan_pressed() -> void:
+	var loan : int
+	
+	if get_money() > 0 and get_money() <= 1000:
+		loan = 100
+	elif get_money() > 1000:
+		loan = 500
+	
+	set_debt(get_debt() + loan)
+	set_money(get_money() + loan)
+	instance_resource_gained(0, loan_button)
+	
+	loan_button.disabled = true
+	loan_label.visible = true
+	loan_label.set_text(str(loan_time))
+	
+	loan_timer.start()
+
+
+func _on_LoanTimer_timeout() -> void:
+	if loan_time > 0:
+		loan_time -= get_time_speed()
+		loan_label.set_text(str(loan_time))
+	else:
+		loan_timer.stop()
+		loan_button.disabled = false
+		loan_label.visible = false
+		loan_time = 500
 
 
 # Solar Panels

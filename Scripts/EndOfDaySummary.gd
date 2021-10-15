@@ -19,6 +19,10 @@ var beans_amount : int = 0 setget set_beans_amount, get_beans_amount
 var seed_price : int = 10
 
 
+func _ready() -> void:
+	debt_label.set_text(str(game.get_debt()))
+
+
 # SETGET FUNCTIONS
 func set_pay_amount(new_value: int) -> void:
 	pay_amount = new_value
@@ -134,5 +138,11 @@ func _on_BeansIncrease_pressed() -> void:
 func _on_Done_pressed() -> void:
 	debt_label.set_text(total_label.get_text())
 	game.set_debt(int(total_label.get_text()))
+	
+	set_grain_amount(0)
+	set_fruit_amount(0)
+	set_beans_amount(0)
+	
 	hide()
+	
 	game.set_time_speed(1)

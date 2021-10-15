@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Sprites/produce_farm/dirt_patch_selected.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/produce_farm/seed_selected.png" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Assets/Sprites/produce_farm/beans_disabled.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Sprites/solar_panel_farm/add_panel.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Sprites/solar_panel_farm/add_panel_selected.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/general/refresh_selected.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/general/refresh.png" type="Texture" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -70,9 +72,8 @@ __meta__ = {
 
 [node name="DirtPatch" type="TextureButton" parent="."]
 visible = false
-margin_top = 4.0
 margin_right = 150.0
-margin_bottom = 154.0
+margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
 toggle_mode = true
 texture_normal = ExtResource( 6 )
@@ -225,6 +226,20 @@ texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 8 )
 expand = true
 
+[node name="Refresh" type="TextureButton" parent="DirtPatch"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 22 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="AddPatch" to="." method="_on_AddPatch_pressed"]
 [connection signal="pressed" from="DirtPatch" to="." method="_on_DirtPatch_pressed"]
 [connection signal="pressed" from="DirtPatch/HBox/Seed" to="." method="_on_Seed_pressed"]
@@ -234,3 +249,4 @@ expand = true
 [connection signal="pressed" from="DirtPatch/HBox/Water" to="." method="_on_Water_pressed"]
 [connection signal="timeout" from="DirtPatch/HBox/Water/WaterTimer" to="." method="_on_WaterTimer_timeout"]
 [connection signal="pressed" from="DirtPatch/HBox/Harvest" to="." method="_on_Harvest_pressed"]
+[connection signal="pressed" from="DirtPatch/Refresh" to="." method="_on_Refresh_pressed"]

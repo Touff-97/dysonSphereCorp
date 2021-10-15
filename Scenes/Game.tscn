@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Sprites/general/back.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/general/back_selected.png" type="Texture" id=2]
@@ -25,6 +25,10 @@
 [ext_resource path="res://Assets/Sprites/general/home_selected.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Sprites/general/home.png" type="Texture" id=24]
 [ext_resource path="res://Scenes/EndOfDaySummary.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/WelcomeMessage.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Assets/Sprites/organic_shop/money_gained.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/organic_shop/money_gained_selected.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprites/organic_shop/money_gained_disabled.png" type="Texture" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -48,6 +52,12 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=6]
 size = 32
 outline_size = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 48
+outline_size = 4
+use_filter = true
 font_data = ExtResource( 7 )
 
 [node name="Game" type="Control"]
@@ -497,6 +507,52 @@ expand = true
 
 [node name="EndOfDaySummary" parent="." instance=ExtResource( 25 )]
 
+[node name="WelcomeMessage" parent="." instance=ExtResource( 26 )]
+
+[node name="LoanButton" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -210.0
+margin_right = 210.0
+rect_min_size = Vector2( 210, 210 )
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Loan" type="TextureButton" parent="LoanButton"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 180.0
+margin_bottom = 180.0
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 28 )
+texture_hover = ExtResource( 28 )
+texture_disabled = ExtResource( 29 )
+
+[node name="Label" type="Label" parent="LoanButton/Loan"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -22.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoanTimer" type="Timer" parent="LoanButton/Loan"]
+autostart = true
+
 [connection signal="day_passed" from="HUD/MarginContainer/VBoxContainer/Time" to="." method="_on_Time_day_passed"]
 [connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/TimeControls/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/TimeControls/Pause" to="." method="_on_Pause_pressed"]
@@ -511,5 +567,7 @@ expand = true
 [connection signal="pressed" from="ShopView/AddSellerCapacity" to="." method="_on_AddSellerCapacity_pressed"]
 [connection signal="timeout" from="ShopView/AddSellerCapacity/SellerCapacityTimer" to="." method="_on_SellerCapacityTimer_timeout"]
 [connection signal="pressed" from="BackToMenu/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="LoanButton/Loan" to="." method="_on_Loan_pressed"]
+[connection signal="timeout" from="LoanButton/Loan/LoanTimer" to="." method="_on_LoanTimer_timeout"]
 
 [editable path="HUD"]

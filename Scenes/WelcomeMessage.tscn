@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/WelcomeMessage.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/My_handwritten_font-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 2
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 2
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="WelcomeMessage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 400
+custom_constants/margin_top = 100
+custom_constants/margin_left = 400
+custom_constants/margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Margin"]
+margin_left = 400.0
+margin_top = 100.0
+margin_right = 880.0
+margin_bottom = 620.0
+mouse_filter = 2
+color = Color( 1, 0.992157, 0.941176, 0.882353 )
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Margin/Background/VBox"]
+margin_right = 480.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "
+Welcome tou your new job!"
+align = 1
+valign = 1
+
+[node name="Margin" type="MarginContainer" parent="Margin/Background/VBox"]
+margin_top = 88.0
+margin_right = 480.0
+margin_bottom = 437.0
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+
+[node name="VBox" type="VBoxContainer" parent="Margin/Background/VBox/Margin"]
+margin_left = 20.0
+margin_right = 460.0
+margin_bottom = 349.0
+
+[node name="Two" type="Label" parent="Margin/Background/VBox/Margin/VBox"]
+margin_right = 440.0
+margin_bottom = 349.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ok, let's cut to the chase. We used everything we had coming here and even racked up a bit of a debt that we kind of need to pay!
+
+So we hired YOU to get us that money. It's simple. Buy stuff to generate stuff and sell for money.
+
+The Holo Seller Association of the Dyson Sphere Federation or HSADSF has set a minimum amount of stock before letting you sell on their neuro-linked holographic network.
+
+Just get like 5 of stuff before you sell said stuff.
+
+Only work when the Sun's out. Company policy!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Done" type="Button" parent="Margin/Background/VBox"]
+margin_top = 462.0
+margin_right = 480.0
+margin_bottom = 491.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_colors/font_color_pressed = Color( 0.980392, 0.380392, 0.286275, 1 )
+text = "done"
+flat = true
+
+[connection signal="pressed" from="Margin/Background/VBox/Done" to="." method="_on_Done_pressed"]

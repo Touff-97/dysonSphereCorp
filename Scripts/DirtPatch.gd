@@ -48,6 +48,8 @@ var grow_boost : int = 20
 var watering_bonus : int = 0
 var produce_yield : int = 4
 
+var reset : bool = false
+
 
 func _ready() -> void:
 	add_patch_label.set_text(str(cost))
@@ -205,6 +207,9 @@ func _on_Harvest_pressed() -> void:
 # CUSTOM FUNCTIONS
 func grow_plant() -> void:
 	while grow_time > 0:
+		if reset:
+			reset = false
+			return
 		yield(get_tree().create_timer(1.0), "timeout")
 		grow_time -= game.get_time_speed()
 		print(grow_time)
@@ -248,3 +253,36 @@ func grow_plant() -> void:
 					water_timer.stop()
 					
 					harvest.visible = true
+
+
+func _on_Refresh_pressed() -> void:
+	# Dirt reset
+	patch.texture_normal = load("res://Assets/Sprites/produce_farm/dirt_patch.png")
+	patch.texture_hover = load("res://Assets/Sprites/produce_farm/dirt_patch_selected.png")
+	patch.texture_pressed = load("res://Assets/Sprites/produce_farm/dirt_patch_selected.png")
+	
+	_on_DirtPatch_pressed()
+	grow_time = 40
+	
+	# Water reset
+	water.visible = false
+	water.disabled = false
+	water_countdown.visible = false
+	water_countdown.set_text("50")
+	water_timer.stop()
+	watering_bonus = 0
+	
+	match seed_types:
+		seedTypes.GRAIN:
+			game.grain_amount += 1
+			game.set_produce(game.get_produce() + 1)
+		seedTypes.FRUIT:
+			game.fruit_amount += 1
+			game.set_produce(game.get_produce() + 1)
+		seedTypes.BEAN:
+			game.beans_amount += 1
+			game.set_produce(game.get_produce() + 1)
+	
+	grow_stages = growStages.SEED
+	
+	reset = true
