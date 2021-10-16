@@ -24,6 +24,8 @@ onready var loan_button : TextureButton = $LoanButton/Loan
 onready var loan_label : Label = $LoanButton/Loan/Label
 onready var loan_timer : Timer = $LoanButton/Loan/LoanTimer
 
+onready var fail_to_press : AudioStreamPlayer = $Fail2Press
+
 # Solar Panels
 onready var panel_grid : GridContainer = $SolarPanelView/VBox/SolarPanelsGrid
 
@@ -452,6 +454,7 @@ func give_back_power(power_amount: int, start_time: int) -> void:
 
 
 func not_enough_resources(resource: String) -> void:
+	fail_to_press.play()
 	match resource:
 		"Money":
 			money_label.set("custom_colors/font_color", Color(255, 0, 0))

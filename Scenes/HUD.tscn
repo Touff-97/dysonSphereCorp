@@ -148,6 +148,7 @@ size_flags_vertical = 4
 script = ExtResource( 17 )
 
 [node name="Play" type="TextureButton" parent="MarginContainer/VBoxContainer/TimeControls" groups=[
+"Button",
 "TimeControl",
 ]]
 margin_right = 40.0
@@ -160,6 +161,7 @@ texture_hover = ExtResource( 14 )
 expand = true
 
 [node name="Pause" type="TextureButton" parent="MarginContainer/VBoxContainer/TimeControls" groups=[
+"Button",
 "TimeControl",
 ]]
 margin_left = 44.0
@@ -173,6 +175,7 @@ texture_hover = ExtResource( 13 )
 expand = true
 
 [node name="Forward" type="TextureButton" parent="MarginContainer/VBoxContainer/TimeControls" groups=[
+"Button",
 "TimeControl",
 ]]
 margin_left = 88.0
@@ -186,6 +189,7 @@ texture_hover = ExtResource( 16 )
 expand = true
 
 [node name="ForwardTimes2" type="TextureButton" parent="MarginContainer/VBoxContainer/TimeControls" groups=[
+"Button",
 "TimeControl",
 ]]
 margin_left = 132.0

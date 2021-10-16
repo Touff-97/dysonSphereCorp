@@ -32,7 +32,6 @@ font_data = ExtResource( 2 )
 [node name="WelcomeMessage" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,7 +40,6 @@ __meta__ = {
 [node name="Margin" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
 custom_constants/margin_right = 400
 custom_constants/margin_top = 100
 custom_constants/margin_left = 400
@@ -108,7 +106,9 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Done" type="Button" parent="Margin/Background/VBox"]
+[node name="Done" type="Button" parent="Margin/Background/VBox" groups=[
+"Button",
+]]
 margin_top = 462.0
 margin_right = 480.0
 margin_bottom = 491.0
@@ -120,6 +120,7 @@ custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.980392, 0.380392, 0.286275, 1 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.380392, 0.286275, 1 )
+toggle_mode = true
 text = "done"
 flat = true
 

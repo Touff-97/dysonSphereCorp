@@ -2,12 +2,23 @@ extends Control
 
 onready var animPlayer : AnimationPlayer = $AnimationPlayer
 onready var current_level = $Scene/MainMenu
+onready var button_pressed : AudioStreamPlayer = $ButtonPressed 
 
 var scene : String
 
 
 func _ready() -> void:
 	current_level.connect("level_changed", self, "_on_Level_changed")
+
+
+func _process(delta: float) -> void:
+	var buttons = get_tree().get_nodes_in_group("Button")
+	for b in buttons:
+		if b.is_pressed():
+			b.pressed = false
+			button_pressed.play()
+			yield(get_tree().create_timer(0.25), "timeout")
+			continue
 
 
 func _on_Level_changed(current_level_name: String, button_id: int = 0, win: bool = false) -> void:

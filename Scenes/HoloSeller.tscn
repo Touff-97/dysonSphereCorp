@@ -63,10 +63,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddShop" type="TextureButton" parent="."]
+[node name="AddShop" type="TextureButton" parent="." groups=[
+"Button",
+]]
 margin_right = 150.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
+toggle_mode = true
 texture_normal = ExtResource( 22 )
 texture_pressed = ExtResource( 23 )
 texture_hover = ExtResource( 23 )
@@ -85,7 +88,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HoloSeller" type="TextureButton" parent="."]
+[node name="HoloSeller" type="TextureButton" parent="." groups=[
+"Button",
+]]
 visible = false
 margin_right = 150.0
 margin_bottom = 150.0
@@ -115,7 +120,9 @@ margin_right = 126.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 
-[node name="Power" type="TextureButton" parent="HoloSeller/Center/HBox"]
+[node name="Power" type="TextureButton" parent="HoloSeller/Center/HBox" groups=[
+"Button",
+]]
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
@@ -138,7 +145,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Produce" type="TextureButton" parent="HoloSeller/Center/HBox"]
+[node name="Produce" type="TextureButton" parent="HoloSeller/Center/HBox" groups=[
+"Button",
+]]
 margin_left = 54.0
 margin_right = 104.0
 margin_bottom = 50.0
@@ -156,7 +165,9 @@ margin_left = -5.0
 margin_right = 153.0
 margin_bottom = 50.0
 
-[node name="Grain" type="TextureButton" parent="HoloSeller/Center/HBox2"]
+[node name="Grain" type="TextureButton" parent="HoloSeller/Center/HBox2" groups=[
+"Button",
+]]
 margin_top = -1.85185
 margin_right = 50.0
 margin_bottom = 48.1481
@@ -177,7 +188,9 @@ margin_top = -18.0
 custom_fonts/font = SubResource( 2 )
 align = 2
 
-[node name="Fruit" type="TextureButton" parent="HoloSeller/Center/HBox2"]
+[node name="Fruit" type="TextureButton" parent="HoloSeller/Center/HBox2" groups=[
+"Button",
+]]
 margin_left = 54.0
 margin_top = 1.85185
 margin_right = 104.0
@@ -198,7 +211,9 @@ margin_top = -18.0
 custom_fonts/font = SubResource( 2 )
 align = 2
 
-[node name="Beans" type="TextureButton" parent="HoloSeller/Center/HBox2"]
+[node name="Beans" type="TextureButton" parent="HoloSeller/Center/HBox2" groups=[
+"Button",
+]]
 margin_left = 108.0
 margin_top = -1.85185
 margin_right = 158.0
@@ -219,13 +234,16 @@ margin_top = -18.0
 custom_fonts/font = SubResource( 2 )
 align = 2
 
-[node name="Refresh" type="TextureButton" parent="HoloSeller"]
+[node name="Refresh" type="TextureButton" parent="HoloSeller" groups=[
+"Button",
+]]
 visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+toggle_mode = true
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 15 )
@@ -260,7 +278,9 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/cursor_color = Color( 0, 0, 0, 1 )
 caret_blink = true
 
-[node name="Check" type="TextureButton" parent="HoloSeller/Price"]
+[node name="Check" type="TextureButton" parent="HoloSeller/Price" groups=[
+"Button",
+]]
 margin_left = 82.0
 margin_right = 122.0
 margin_bottom = 40.0

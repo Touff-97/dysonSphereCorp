@@ -109,10 +109,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Decrease" type="TextureButton" parent="Margin/Background/VBox/Treasury/Center/HBox"]
+[node name="Decrease" type="TextureButton" parent="Margin/Background/VBox/Treasury/Center/HBox" groups=[
+"Button",
+]]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
@@ -131,11 +134,14 @@ text = "+ 100"
 align = 1
 valign = 1
 
-[node name="Increase" type="TextureButton" parent="Margin/Background/VBox/Treasury/Center/HBox"]
+[node name="Increase" type="TextureButton" parent="Margin/Background/VBox/Treasury/Center/HBox" groups=[
+"Button",
+]]
 margin_left = 190.0
 margin_right = 230.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
@@ -182,10 +188,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GrainDecrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Grain/HBox"]
+[node name="GrainDecrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Grain/HBox" groups=[
+"Button",
+]]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
@@ -212,11 +221,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GrainIncrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Grain/HBox"]
+[node name="GrainIncrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Grain/HBox" groups=[
+"Button",
+]]
 margin_left = 190.0
 margin_right = 230.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
@@ -236,10 +248,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FruitDecrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Fruit/HBox"]
+[node name="FruitDecrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Fruit/HBox" groups=[
+"Button",
+]]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
@@ -266,11 +281,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FruitIncrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Fruit/HBox"]
+[node name="FruitIncrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Fruit/HBox" groups=[
+"Button",
+]]
 margin_left = 190.0
 margin_right = 230.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
@@ -290,10 +308,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BeansDecrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Beans/HBox"]
+[node name="BeansDecrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Beans/HBox" groups=[
+"Button",
+]]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
@@ -320,17 +341,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BeansIncrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Beans/HBox"]
+[node name="BeansIncrease" type="TextureButton" parent="Margin/Background/VBox/BuyProduce/Beans/HBox" groups=[
+"Button",
+]]
 margin_left = 190.0
 margin_right = 230.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+toggle_mode = true
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Done" type="Button" parent="Margin/Background/VBox"]
+[node name="Done" type="Button" parent="Margin/Background/VBox" groups=[
+"Button",
+]]
 margin_left = 202.0
 margin_top = 446.0
 margin_right = 278.0
@@ -341,6 +367,7 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.980392, 0.380392, 0.286275, 1 )
 custom_colors/font_color_pressed = Color( 0.980392, 0.380392, 0.286275, 1 )
+toggle_mode = true
 text = "done"
 flat = true
 

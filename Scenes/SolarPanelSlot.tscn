@@ -25,7 +25,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Add" type="TextureButton" parent="."]
+[node name="Add" type="TextureButton" parent="." groups=[
+"Button",
+]]
 margin_right = 150.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
@@ -50,7 +52,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="TextureButton" parent="."]
+[node name="Panel" type="TextureButton" parent="." groups=[
+"Button",
+]]
 visible = false
 margin_top = 154.0
 margin_right = 150.0
@@ -70,7 +74,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Upgrade" type="TextureButton" parent="Panel/Upgrades"]
+[node name="Upgrade" type="TextureButton" parent="Panel/Upgrades" groups=[
+"Button",
+]]
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
@@ -83,7 +89,9 @@ texture_hover = ExtResource( 2 )
 texture_disabled = ExtResource( 5 )
 expand = true
 
-[node name="Upgrade2" type="TextureButton" parent="Panel/Upgrades"]
+[node name="Upgrade2" type="TextureButton" parent="Panel/Upgrades" groups=[
+"Button",
+]]
 visible = false
 margin_left = 50.0
 margin_right = 100.0
@@ -98,7 +106,9 @@ texture_hover = ExtResource( 2 )
 texture_disabled = ExtResource( 5 )
 expand = true
 
-[node name="Upgrade3" type="TextureButton" parent="Panel/Upgrades"]
+[node name="Upgrade3" type="TextureButton" parent="Panel/Upgrades" groups=[
+"Button",
+]]
 visible = false
 margin_left = 100.0
 margin_right = 150.0

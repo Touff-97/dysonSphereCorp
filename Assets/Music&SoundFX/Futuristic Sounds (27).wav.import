@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Futuristic Sounds (27).wav-9753dd526f373bf12d40593a598ee338.sample"
+
+[deps]
+
+source_file="res://Assets/Music&SoundFX/Futuristic Sounds (27).wav"
+dest_files=[ "res://.import/Futuristic Sounds (27).wav-9753dd526f373bf12d40593a598ee338.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

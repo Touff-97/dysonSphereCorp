@@ -17,9 +17,9 @@
 size = 112
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 56
 font_data = ExtResource( 4 )
 
@@ -66,10 +66,13 @@ custom_constants/separation = 100
 margin_right = 1080.0
 margin_bottom = 103.0
 
-[node name="Back" type="TextureButton" parent="Color/Margin/VBox/HBoxContainer"]
+[node name="Back" type="TextureButton" parent="Color/Margin/VBox/HBoxContainer" groups=[
+"Button",
+]]
 margin_right = 103.0
 margin_bottom = 103.0
 rect_min_size = Vector2( 103, 0 )
+toggle_mode = true
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 7 )
@@ -90,7 +93,7 @@ margin_left = 977.0
 margin_right = 1080.0
 margin_bottom = 103.0
 rect_min_size = Vector2( 103, 0 )
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="Margin" type="MarginContainer" parent="Color/Margin/VBox"]
 margin_top = 203.0
@@ -114,13 +117,15 @@ custom_constants/separation = 25
 margin_right = 305.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Fullscreen"
 align = 1
 valign = 1
 
-[node name="Check" type="TextureButton" parent="Color/Margin/VBox/Margin/VBox/Fullscreen"]
+[node name="Check" type="TextureButton" parent="Color/Margin/VBox/Margin/VBox/Fullscreen" groups=[
+"Button",
+]]
 margin_left = 330.0
 margin_right = 380.0
 margin_bottom = 52.0

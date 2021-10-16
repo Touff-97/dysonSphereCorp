@@ -48,10 +48,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddPatch" type="TextureButton" parent="."]
+[node name="AddPatch" type="TextureButton" parent="." groups=[
+"Button",
+]]
 margin_right = 150.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
+toggle_mode = true
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 21 )
 texture_hover = ExtResource( 21 )
@@ -70,7 +73,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DirtPatch" type="TextureButton" parent="."]
+[node name="DirtPatch" type="TextureButton" parent="." groups=[
+"Button",
+]]
 visible = false
 margin_right = 150.0
 margin_bottom = 150.0
@@ -91,13 +96,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Seed" type="TextureButton" parent="DirtPatch/HBox"]
+[node name="Seed" type="TextureButton" parent="DirtPatch/HBox" groups=[
+"Button",
+]]
 margin_left = 50.0
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
+toggle_mode = true
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
@@ -109,10 +117,13 @@ margin_left = -4.0
 margin_right = 154.0
 margin_bottom = 50.0
 
-[node name="Grain" type="TextureButton" parent="DirtPatch/HBox/SeedSelection"]
+[node name="Grain" type="TextureButton" parent="DirtPatch/HBox/SeedSelection" groups=[
+"Button",
+]]
 margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
+toggle_mode = true
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 14 )
 texture_hover = ExtResource( 14 )
@@ -132,11 +143,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fruit" type="TextureButton" parent="DirtPatch/HBox/SeedSelection"]
+[node name="Fruit" type="TextureButton" parent="DirtPatch/HBox/SeedSelection" groups=[
+"Button",
+]]
 margin_left = 54.0
 margin_right = 104.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
+toggle_mode = true
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 12 )
@@ -156,11 +170,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Beans" type="TextureButton" parent="DirtPatch/HBox/SeedSelection"]
+[node name="Beans" type="TextureButton" parent="DirtPatch/HBox/SeedSelection" groups=[
+"Button",
+]]
 margin_left = 108.0
 margin_right = 158.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
+toggle_mode = true
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 16 )
 texture_hover = ExtResource( 16 )
@@ -180,7 +197,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Water" type="TextureButton" parent="DirtPatch/HBox"]
+[node name="Water" type="TextureButton" parent="DirtPatch/HBox" groups=[
+"Button",
+]]
 visible = false
 margin_left = 50.0
 margin_right = 100.0
@@ -188,6 +207,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
+toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
@@ -215,23 +235,29 @@ __meta__ = {
 
 [node name="WaterTimer" type="Timer" parent="DirtPatch/HBox/Water"]
 
-[node name="Harvest" type="TextureButton" parent="DirtPatch/HBox"]
+[node name="Harvest" type="TextureButton" parent="DirtPatch/HBox" groups=[
+"Button",
+]]
 visible = false
 margin_left = 50.0
 margin_right = 100.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
+toggle_mode = true
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 8 )
 expand = true
 
-[node name="Refresh" type="TextureButton" parent="DirtPatch"]
+[node name="Refresh" type="TextureButton" parent="DirtPatch" groups=[
+"Button",
+]]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
 texture_pressed = ExtResource( 22 )
 texture_hover = ExtResource( 22 )

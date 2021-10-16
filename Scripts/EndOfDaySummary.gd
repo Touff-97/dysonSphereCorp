@@ -133,9 +133,8 @@ func _on_BeansIncrease_pressed() -> void:
 
 
 func _on_Done_pressed() -> void:
-	if game.get_debt() <= 0:
-		game.end_game(true)
-	else:
+	print(game.get_debt())
+	if game.get_debt() < 0:
 		debt_label.set_text(total_label.get_text())
 		game.set_debt(int(total_label.get_text()))
 		
@@ -146,3 +145,5 @@ func _on_Done_pressed() -> void:
 		hide()
 		
 		game.set_time_speed(1)
+	else:
+		game.end_game(true)

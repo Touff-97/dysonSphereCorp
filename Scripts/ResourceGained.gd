@@ -1,6 +1,7 @@
 extends TextureRect
 
 onready var animPlayer : AnimationPlayer = $AnimationPlayer
+onready var ding : AudioStreamPlayer = $Ding
 
 enum resourceGained {
 	MONEY,
@@ -15,6 +16,7 @@ var resource_gained = resourceGained.MONEY setget set_resource
 
 func _ready() -> void:
 	animPlayer.play("up_fade")
+	ding.play()
 
 
 func set_resource(new_value) -> void:
