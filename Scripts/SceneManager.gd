@@ -63,3 +63,7 @@ func _on_Level_changed(current_level_name: String, button_id: int = 0, win: bool
 	next_level.connect("level_changed", self, "_on_Level_changed")
 	current_level.queue_free()
 	current_level = next_level
+
+
+func _on_Music_finished() -> void:
+	$Music.play()

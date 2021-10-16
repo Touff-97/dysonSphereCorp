@@ -15,3 +15,7 @@ func _on_Settings_pressed() -> void:
 
 func _on_Quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_Link_pressed() -> void:
+	OS.shell_open("https://touff97.itch.io/dyson-sphere-corp")
