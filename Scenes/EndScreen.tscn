@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Sprites/player_ui/sun_dial.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/My_handwritten_font-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scripts/EndScreen.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Scripts/EndScreen.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128

@@ -104,7 +104,7 @@ valign = 1
 [node name="Margin" type="MarginContainer" parent="Color/Margin/VBox"]
 margin_top = 268.0
 margin_right = 1080.0
-margin_bottom = 448.0
+margin_bottom = 383.0
 mouse_filter = 2
 custom_constants/margin_right = 350
 custom_constants/margin_left = 350
@@ -112,7 +112,7 @@ custom_constants/margin_left = 350
 [node name="VBox" type="VBoxContainer" parent="Color/Margin/VBox/Margin"]
 margin_left = 350.0
 margin_right = 730.0
-margin_bottom = 180.0
+margin_bottom = 115.0
 custom_constants/separation = 15
 
 [node name="Start" type="Button" parent="Color/Margin/VBox/Margin/VBox" groups=[
@@ -149,6 +149,7 @@ flat = true
 [node name="Quit" type="Button" parent="Color/Margin/VBox/Margin/VBox" groups=[
 "Button",
 ]]
+visible = false
 margin_top = 130.0
 margin_right = 380.0
 margin_bottom = 180.0
